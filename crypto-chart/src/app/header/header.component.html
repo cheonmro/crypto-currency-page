@@ -3,6 +3,9 @@
   <hr>
   <nav class="ranks-select">
     <h2 class="readable-hidden">Coin Rank</h2>
-    <button></button>
+    <button *ngFor="let rank of ranks"
+      [class.active]="this.cryptoService.selectedRank===rank"
+      (click)="this.cryptoService.changeRankingTable(rank)"
+      ># {{ rank }}</button>
   </nav>
 </header>

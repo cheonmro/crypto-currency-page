@@ -13,12 +13,16 @@ export class CryptoService {
   public top80Cryptos: CryptoCurrency[];
   public top100Cryptos: CryptoCurrency[];
 
+  public ranks: string[] = ['1~20', '21~40', '41~60', '61~80', '81~100'];
+  public selectedRank = '1~20';
+
   constructor(public http: HttpClient) { }
 
   getAllCryptoCurrency() {
     this.http.get('https://api.coincap.io/v2/assets/').subscribe((assets: any) => {
       const coinAssets = assets.data;
       console.log(coinAssets);
+
       // get # 1~20 coins
       this.top20Cryptos = coinAssets.filter((eachCoin: any) => {
         if (eachCoin.rank <= 20) {
@@ -57,5 +61,14 @@ export class CryptoService {
       });
 
     });
+  }
+
+  changeRankingTable(rank: string) {
+    this.selectedRank = rank;
+    this.selectedRank === '1~20' ? this.topCryptos = this.top20Cryptos :
+    this.selectedRank === '21~40' ? this.topCryptos = this.top40Cryptos :
+    this.selectedRank === '41~60' ? this.topCryptos = this.top60Cryptos :
+    this.selectedRank === '61~80' ? this.topCryptos = this.top80Cryptos :
+    this.selectedRank === '81~100' ? this.topCryptos = this.top100Cryptos : this.topCryptos = this.topCryptos;
   }
 }
