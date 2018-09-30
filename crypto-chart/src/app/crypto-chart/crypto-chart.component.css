@@ -1,0 +1,15 @@
+.days-select {
+  background-color: greenyellow;
+}
+.days-select button {
+  /* background-color: blueviolet; */
+  margin: 0 5px;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+}
+.days-select button.active,
+.days-select button.focus,
+.days-select button.hover {
+  color: #0090ff;
+  border-color: #0090ff;
+}
