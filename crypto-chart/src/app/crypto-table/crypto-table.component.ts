@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CryptoService } from '../services/crypto.service';
 
 @Component({
   selector: 'app-crypto-table',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CryptoTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cryptoService: CryptoService) {
+    this.cryptoService.getAllCryptoCurrency();
+  }
 
   ngOnInit() {
   }

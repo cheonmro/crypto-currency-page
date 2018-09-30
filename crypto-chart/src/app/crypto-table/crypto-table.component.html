@@ -10,11 +10,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let crypto of this.cryptoService.topCryptos;">
+            <td>{{ crypto.rank }}</td>
+            <td>{{ crypto.name }}</td>
+            <td>{{ crypto.marketCapUsd | currency:'USD': 'symbol':'.0' }}</td>
+            <td>{{ crypto.priceUsd | currency }}</td>
           </tr>
         </tbody>
       </table>
