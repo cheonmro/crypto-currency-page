@@ -12,7 +12,7 @@
         <tbody>
           <tr *ngFor="let crypto of this.cryptoService.topCryptos;">
             <td>{{ crypto.rank }}</td>
-            <td>{{ crypto.name }}</td>
+            <td class="crypto-name" (click)="coin.emit(crypto);">{{ crypto.name }}</td>
             <td>{{ crypto.marketCapUsd | currency:'USD': 'symbol':'.0' }}</td>
             <td>{{ crypto.priceUsd | currency }}</td>
           </tr>

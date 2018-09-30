@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartModule } from 'angular2-chartjs';
 
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
@@ -22,7 +23,8 @@ import { CryptoChartComponent } from './crypto-chart/crypto-chart.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

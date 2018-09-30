@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CryptoService } from '../services/crypto.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { CryptoService } from '../services/crypto.service';
   styleUrls: ['./crypto-table.component.css']
 })
 export class CryptoTableComponent implements OnInit {
+  @Output() coin = new EventEmitter();
 
   constructor(public cryptoService: CryptoService) {
     this.cryptoService.getAllCryptoCurrency();

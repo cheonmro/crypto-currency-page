@@ -3,7 +3,9 @@
     <!-- for table -->
     <div class="main-table">
         <!-- for table -->
-        <app-crypto-table></app-crypto-table>
+        <app-crypto-table
+        (coin)="showCoinChart($event)">
+        </app-crypto-table>
         <!-- for table -->
     </div>
     <!-- for table -->
@@ -11,8 +13,12 @@
     <!-- for chart -->
     <div class="main-chart">
       <!-- for chart -->
-        <h2>Chart</h2>
-        <app-crypto-chart></app-crypto-chart>
+        <h2>{{ this.coinName }} Chart</h2>
+        <app-crypto-chart
+        [type]="type"
+        [chartData]="chartData"
+        [options]="options">
+        </app-crypto-chart>
       <!-- for chart -->
     </div>
     <!-- for chart -->

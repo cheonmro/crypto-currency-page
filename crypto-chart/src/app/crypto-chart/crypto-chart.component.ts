@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-crypto-chart',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crypto-chart.component.css']
 })
 export class CryptoChartComponent implements OnInit {
+  @Input() type: string;
+  @Input() chartData: any;
+  @Input() options: any;
 
   constructor() { }
 
