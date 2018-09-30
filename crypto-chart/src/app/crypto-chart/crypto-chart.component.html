@@ -1,7 +1,9 @@
 <div>
 
     <div class="days-select">
-      <button></button>
+      <button *ngFor="let day of historyDays"
+      [class.active]="selectedDay===day" [value]="day"
+      (click)="days.emit(day); changeSelectedDay(day)">{{ day }} days</button>
     </div>
 
     <section class="main-chart-content">

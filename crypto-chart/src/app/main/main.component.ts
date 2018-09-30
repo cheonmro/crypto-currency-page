@@ -24,24 +24,21 @@ export class MainComponent implements OnInit {
   }
 
   convertDates(data: any) {
-    this.dates = data.price.map((element: any) => {
+    this.dates = data.price.map(element => {
       const eachDate = new Date(element[0]);
         return `${eachDate.getFullYear()}/${eachDate.getMonth()}/${eachDate.getDay()}`;
     });
+    console.log(this.dates);
   }
 
   convertPrices(data: any) {
-    this.prices = data.price.map((elem: any) => {
+    this.prices = data.price.map(elem => {
       const eachPrice = elem[1];
         return eachPrice;
     });
   }
 
   coinChart(crytoName: string) {
-    console.log('here coinchart');
-    console.log(crytoName);
-    console.log(this.dates);
-    console.log(this.prices);
     if (this.dates) {
       console.log('got chart here is');
 
@@ -62,17 +59,17 @@ export class MainComponent implements OnInit {
         responsive: true,
         maintainAspectRatio: false,
 
-        animation: {
-          duration: 1000,
-          onProgress: function(animation) {
-            this.val = animation.currentStep / animation.numSteps;
-          },
-          onComplete: function() {
-            window.setTimeout(function() {
-              this.val = 1;
-            }, 1000);
-          }
-        }
+        // animation: {
+        //   duration: 1000,
+        //   onProgress: function(animation) {
+        //     this.val = animation.currentStep / animation.numSteps;
+        //   },
+        //   onComplete: function() {
+        //     window.setTimeout(function() {
+        //       this.val = 1;
+        //     }, 1000);
+        //   }
+        // }
 
       };
       // -- coin chart ends --
@@ -83,10 +80,7 @@ export class MainComponent implements OnInit {
 
   // get a chart from api of coin clicked
   getCoinChart() {
-    console.log('get first chart');
-    console.log(this.coinSymbol);
-    this.http.get(`http://coincap.io/history/${this.coinSymbol}`).subscribe((element: any) => {
-      console.log(element);
+    this.http.get(`http://coincap.io/history/${this.coinSymbol}`).subscribe(element => {
       this.convertDates(element);
       this.convertPrices(element);
       this.coinChart(this.coinName);
@@ -100,10 +94,24 @@ export class MainComponent implements OnInit {
 
   // when clicking a coin name in the table
   showCoinChart(crypto: any) {
-    console.log('show coin chart');
     this.coinSymbol = crypto.symbol;
     this.coinName = crypto.name;
     this.getCoinChart();
+  }
+
+  // when clicking a days among days buttons
+  showDaysChart(days: string) {
+    days === 'All' ? this.getCoinChart() :
+    this.http.get(`http://coincap.io/history/${days}day/${this.coinSymbol}`).subscribe(element => {
+      this.convertDates(element);
+      this.convertPrices(element);
+      this.coinChart(this.coinName);
+    },
+    error => {
+      // alert(`can't get ${days}days data`);
+      console.log(`can't get ${days}days data`);
+    }
+    );
   }
 
 }

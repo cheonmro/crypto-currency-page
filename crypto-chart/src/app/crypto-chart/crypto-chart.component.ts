@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-crypto-chart',
@@ -7,12 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CryptoChartComponent implements OnInit {
   @Input() type: string;
-  @Input() chartData: any;
-  @Input() options: any;
+  @Input() chartData: object;
+  @Input() options: object;
+
+  public historyDays: string[] = ['All', '365', '180', '90', '30', '7', '1'];
+  public selectedDay = 'All';
+
+  @Output() days = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeSelectedDay(day: string) {
+    this.selectedDay = day;
   }
 
 }

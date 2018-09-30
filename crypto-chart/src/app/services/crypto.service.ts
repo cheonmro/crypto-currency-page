@@ -22,7 +22,7 @@ export class CryptoService {
     this.http.get('https://api.coincap.io/v2/assets/').subscribe((assets: any) => {
       const coinAssets = assets.data;
       // get # 1~20 coins
-      this.top20Cryptos = coinAssets.filter((eachCoin: any) => {
+      this.top20Cryptos = coinAssets.filter(eachCoin => {
         if (eachCoin.rank <= 20) {
           return new CryptoCurrency(eachCoin);
         }
@@ -30,28 +30,28 @@ export class CryptoService {
       this.topCryptos = this.top20Cryptos;
 
       // get # 21~40 coins
-      this.top40Cryptos = coinAssets.filter((eachCoin: any) => {
+      this.top40Cryptos = coinAssets.filter(eachCoin => {
         if (eachCoin.rank <= 40 && eachCoin.rank >= 21) {
           return new CryptoCurrency(eachCoin);
         }
       });
 
       // get # 41~60 coins
-      this.top60Cryptos = coinAssets.filter((eachCoin: any) => {
+      this.top60Cryptos = coinAssets.filter(eachCoin => {
         if (eachCoin.rank <= 60 && eachCoin.rank >= 41) {
           return new CryptoCurrency(eachCoin);
         }
       });
 
       // get # 61~80 coins
-      this.top80Cryptos = coinAssets.filter((eachCoin: any) => {
+      this.top80Cryptos = coinAssets.filter(eachCoin => {
         if (eachCoin.rank <= 80 && eachCoin.rank >= 61) {
           return new CryptoCurrency(eachCoin);
         }
       });
 
       // get # 81~100 coins
-      this.top100Cryptos = coinAssets.filter((eachCoin: any) => {
+      this.top100Cryptos = coinAssets.filter(eachCoin => {
         if (eachCoin.rank <= 100 && eachCoin.rank >= 81) {
           return new CryptoCurrency(eachCoin);
         }

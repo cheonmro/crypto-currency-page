@@ -17,7 +17,8 @@
         <app-crypto-chart
         [type]="type"
         [chartData]="chartData"
-        [options]="options">
+        [options]="options"
+        (days)="showDaysChart($event)">
         </app-crypto-chart>
       <!-- for chart -->
     </div>
