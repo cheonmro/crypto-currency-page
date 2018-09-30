@@ -6,6 +6,8 @@ import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
+import { CryptoTableComponent } from './crypto-table/crypto-table.component';
+import { CryptoChartComponent } from './crypto-chart/crypto-chart.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { FooterComponent } from './footer/footer.component';
     ContainerComponent,
     HeaderComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
+    CryptoTableComponent,
+    CryptoChartComponent
   ],
   imports: [
     BrowserModule
