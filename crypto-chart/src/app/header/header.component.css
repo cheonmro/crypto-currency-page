@@ -1,11 +1,12 @@
 header {
-  background-color: aqua;
-  width: 1200px;
+  /* background-color: aqua; */
+  /* width: 1200px; */
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
 .headline {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   text-align: center;
 }
 hr {
@@ -19,6 +20,8 @@ hr {
   clip: rect(0,0,0,0);
 }
 .ranks-select {
+  /* background-color: #0090ff; */
+  /* background: linear-gradient(to bottom, #e8852e 0%,#ed552f 35%,#ed552f 70%,#e8852e 100%); */
   padding: 0 350px;
 }
 .ranks-select button {

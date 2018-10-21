@@ -1,3 +1,10 @@
+.main-table-content td {
+  /* color: green; */
+}
+.main-table-content .crypto-name {
+  /* color: #FF00FF; */
+  font-weight: bold;
+}
 .crypto-name {
   cursor: pointer;
 }

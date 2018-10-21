@@ -3,11 +3,12 @@
     <div class="days-select">
       <button *ngFor="let day of historyDays"
       [class.active]="selectedDay===day" [value]="day"
-      (click)="days.emit(day); changeSelectedDay(day)">{{ day }} days</button>
+      (click)="days.emit(day); changeSelectedDay(day)"
+       class="btn btn-secondary">{{ day }} days</button>
     </div>
 
     <section class="main-chart-content">
-      <chart style="height: 350px;" [type]="type" [data]="chartData" [options]="options"></chart>
+      <chart style="height: 450px;" [type]="type" [data]="chartData" [options]="options"></chart>
     </section>
 
   </div>
